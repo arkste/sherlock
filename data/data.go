@@ -1,0 +1,361 @@
+package data
+
+// Get returns the data as a json string
+func Get() string {
+	return `{
+		"Instagram": {
+		  "url": "https://www.instagram.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "The link you followed may be broken"
+		},
+		"Twitter": {
+		  "url": "https://www.twitter.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "page doesn’t exist"
+		},
+		"Facebook": {
+		  "url": "https://www.facebook.com/{}",
+		  "errorType": "status_code"
+		},
+		"YouTube": {
+		  "url": "https://www.youtube.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Not Found"
+		},
+		"Blogger": {
+		  "url": "https://{}.blogspot.com",
+		  "errorType": "status_code",
+		  "noPeriod": "True"
+		},
+		"Google Plus": {
+		  "url": "https://plus.google.com/+{}",
+		  "errorType": "status_code"
+		},
+		"Reddit": {
+		  "url": "https://www.reddit.com/user/{}",
+		  "errorType": "message",
+		  "errorMsg":"page not found"
+		},
+		"Pinterest": {
+		  "url": "https://www.pinterest.com/{}",
+		  "errorType": "response_url",
+		  "errorUrl": "https://www.pinterest.com/?show_error=true"
+		},
+		"GitHub": {
+		  "url": "https://www.github.com/{}",
+		  "errorType": "status_code",
+		  "noPeriod": "True"
+		},
+		"Steam": {
+		  "url": "https://steamcommunity.com/id/{}",
+		  "errorType": "message",
+		  "errorMsg": "The specified profile could not be found"
+		},
+		"Vimeo": {
+		  "url": "https://vimeo.com/{}",
+		  "errorType": "status_code"
+		},
+		"SoundCloud": {
+		  "url": "https://soundcloud.com/{}",
+		  "errorType": "status_code"
+		},
+		"Disqus": {
+		  "url": "https://disqus.com/{}",
+		  "errorType": "status_code"
+		},
+		"Medium": {
+		  "url": "https://medium.com/@{}",
+		  "errorType": "status_code"
+		},
+		"DeviantART": {
+		  "url": "https://{}.deviantart.com",
+		  "errorType": "status_code",
+		  "noPeriod": "True"
+		},
+		"VK": {
+		  "url": "https://vk.com/{}",
+		  "errorType": "status_code"
+		},
+		"About.me": {
+		  "url": "https://about.me/{}",
+		  "errorType": "status_code"
+		},
+		"Imgur": {
+		  "url": "https://imgur.com/user/{}",
+		  "errorType": "status_code"
+		},
+		"Flipboard": {
+		  "url": "https://flipboard.com/@{}",
+		  "errorType": "message",
+		  "errorMsg": "loading"
+		},
+		"SlideShare": {
+		  "url": "https://slideshare.net/{}",
+		  "errorType": "status_code"
+		},
+		"Fotolog": {
+		  "url": "https://fotolog.com/{}",
+		  "errorType": "status_code"
+		},
+		"Spotify": {
+		  "url": "https://open.spotify.com/user/{}",
+		  "errorType": "status_code"
+		},
+		"MixCloud": {
+		  "url": "https://www.mixcloud.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Page Not Found"
+		},
+		"Scribd": {
+		  "url": "https://www.scribd.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Page not found"
+		},
+		"Patreon": {
+		  "url": "https://www.patreon.com/{}",
+		  "errorType": "status_code"
+		},
+		"BitBucket": {
+		  "url": "https://bitbucket.org/{}",
+		  "errorType": "status_code"
+		},
+		"Roblox": {
+		  "url": "https://www.roblox.com/user.aspx?username={}",
+		  "errorType": "message",
+		  "errorMsg": "Page cannot be found or no longer exists"
+		},
+		"Gravatar": {
+		  "url": "http://en.gravatar.com/{}",
+		  "errorType": "status_code"
+		},
+		"iMGSRC.RU": {
+		  "url": "https://imgsrc.ru/main/user.php?user={}",
+		  "errorType": "response_url",
+		  "errorUrl": "https://imgsrc.ru/"
+		},
+		"DailyMotion": {
+		  "url": "https://www.dailymotion.com/{}",
+		  "errorType": "status_code"
+		},
+		"Etsy": {
+		  "url": "https://www.etsy.com/shop/{}",
+		  "errorType": "status_code"
+		},
+		"CashMe": {
+		  "url": "https://cash.me/{}",
+		  "errorType": "status_code"
+		},
+		"Behance": {
+		  "url": "https://www.behance.net/{}",
+		  "errorType": "message",
+		  "errorMsg": "Oops! We can’t find that page."
+		},
+		"GoodReads": {
+		  "url": "https://www.goodreads.com/{}",
+		  "errorType": "status_code"
+		},
+		"Instructables": {
+		  "url": "https://www.instructables.com/member/{}",
+		  "errorType": "message",
+		  "errorMsg": "404: We're sorry, things break sometimes"
+		},
+		"Keybase": {
+		  "url": "https://keybase.io/{}",
+		  "errorType": "status_code"
+		},
+		"Kongregate": {
+		  "url": "https://www.kongregate.com/accounts/{}",
+		  "errorType": "message",
+		  "errorMsg": "Sorry, no account with that name was found.",
+		  "noPeriod": "True"
+		},
+		"LiveJournal": {
+		  "url": "https://{}.livejournal.com",
+		  "errorType": "message",
+		  "errorMsg": "Unknown Journal",
+		  "noPeriod": "True"
+		},
+		"VSCO": {
+		  "url": "https://vsco.co/{}",
+		  "errorType": "status_code"
+		},
+		"AngelList": {
+		  "url": "https://angel.co/{}",
+		  "errorType": "message",
+		  "errorMsg": "We couldn't find what you were looking for."
+		},
+		"last.fm": {
+		  "url": "https://last.fm/user/{}",
+		  "errorType": "message",
+		  "errorMsg": "Whoops! Sorry, but this page doesn't exist."
+		},
+		"Dribbble": {
+		  "url": "https://dribbble.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Whoops, that page is gone.",
+		  "noPeriod": "True"
+		},
+		"Codecademy": {
+		  "url": "https://www.codecademy.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "404 error"
+		},
+		"Pastebin": {
+		  "url": "https://pastebin.com/u/{}",
+		  "errorType": "response_url",
+		  "errorUrl": "https://pastebin.com/index"
+		},
+		"Foursquare": {
+		  "url": "https://foursquare.com/{}",
+		  "errorType": "status_code"
+		},
+		"Gumroad": {
+		  "url": "https://www.gumroad.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Page not found."
+		},
+		"Newgrounds": {
+		  "url": "https://{}.newgrounds.com",
+		  "errorType": "status_code",
+		  "noPeriod": "True"
+		},
+		"Wattpad": {
+		  "url": "https://www.wattpad.com/user/{}",
+		  "errorType": "message",
+		  "errorMsg": "This page seems to be missing..."
+		},
+		"Canva": {
+		  "url": "https://www.canva.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Not found (404)"
+		},
+		"Trakt": {
+		  "url": "https://www.trakt.tv/users/{}",
+		  "errorType": "message",
+		  "errorMsg": "404"
+		},
+		"500px": {
+		  "url": "https://500px.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Sorry, no such page."
+		},
+		"BuzzFeed": {
+		  "url": "https://buzzfeed.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "We can't find the page you're looking for."
+		},
+		"TripAdvisor": {
+		  "url": "https://tripadvisor.com/members/{}",
+		  "errorType": "status_code"
+		},
+		"Contently": {
+		  "url": "https://{}.contently.com/",
+		  "errorType": "message",
+		  "errorMsg": "We can't find that page!",
+		  "noPeriod": "True"
+		},
+		"Houzz": {
+		  "url": "https://houzz.com/user/{}",
+		  "errorType": "message",
+		  "errorMsg": "The page you requested was not found."
+		},
+		"BLIP.fm": {
+		  "url": "https://blip.fm/{}",
+		  "errorType": "message",
+		  "errorMsg": "Page Not Found"
+		},
+		"HackerNews": {
+		  "url": "https://news.ycombinator.com/user?id={}",
+		  "errorType": "message",
+		  "errorMsg": "No such user."
+		},
+		"Codementor": {
+		  "url": "https://www.codementor.io/{}",
+		  "errorType": "status_code"
+		},
+		"ReverbNation": {
+		  "url": "https://www.reverbnation.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Sorry, we couldn't find that page"
+		},
+		"Designspiration": {
+		  "url": "https://www.designspiration.net/{}",
+		  "errorType": "message",
+		  "errorMsg": "Content Not Found"
+		},
+		"Bandcamp": {
+		  "url": "https://www.bandcamp.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Sorry, that something isn’t here"
+		},
+		"ColourLovers": {
+		  "url": "https://www.colourlovers.com/love/{}",
+		  "errorType": "message",
+		  "errorMsg": "Page Not Loved"
+		},
+		"IFTTT": {
+		  "url": "https://www.ifttt.com/p/{}",
+		  "errorType": "message",
+		  "errorMsg": "The requested page or file does not exist"
+		},
+		"Ebay": {
+		  "url": "https://www.ebay.com/usr/{}",
+		  "errorType": "message",
+		  "errorMsg": "The User ID you entered was not found"
+		},
+		"Slack": {
+		  "url": "https://{}.slack.com",
+		  "errorType": "status_code",
+		  "noPeriod": "True"
+		},
+		"Trip": {
+		  "url": "https://www.trip.skyscanner.com/user/{}",
+		  "errorType": "message",
+		  "errorMsg": "Page not found"
+		},
+		"Ello": {
+		  "url": "https://ello.co/{}",
+		  "errorType": "message",
+		  "errorMsg": "We couldn't find the page you're looking for"
+		},
+		"HackerOne": {
+		  "url": "https://hackerone.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Page not found"
+		},
+		"Tinder": {
+		  "url": "https://www.gotinder.com/@{}",
+		  "errorType": "message",
+		  "errorMsg": "Looking for Someone?"
+		},
+		"We Heart It": {
+		  "url": "https://weheartit.com/{}",
+		  "errorType": "message",
+		  "errorMsg": "Oops! You've landed on a moving target!"
+		},
+		"Flickr": {
+		  "url": "https://www.flickr.com/people/{}",
+		  "errorType": "status_code"
+		},
+		"WordPress": {
+		  "url": "https://{}.wordpress.com",
+		  "errorType": "response_url",
+		  "errorUrl": "wordpress.com/typo/?subdomain=",
+		  "noPeriod": "True"
+		},
+		"Unsplash": {
+		  "url": "https://unsplash.com/@{}",
+		  "errorType": "status_code"
+		},
+		"Pexels": {
+		  "url": "https://www.pexels.com/@{}",
+		  "errorType": "message",
+		  "errorMsg": "Ouch, something went wrong!"
+		},
+		"devRant": {
+		  "url": "https://devrant.com/users/{}",
+		  "errorType": "response_url",
+		  "errorUrl": "https://devrant.com/"
+		}
+}`
+}
