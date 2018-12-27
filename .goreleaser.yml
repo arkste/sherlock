@@ -1,5 +1,6 @@
 builds:
-- env:
+- binary: sherlock
+  env:
   - CGO_ENABLED=0
   goos:
     - linux
@@ -17,6 +18,10 @@ archive:
     windows: Windows
     386: i386
     amd64: x86_64
+  format: tar.gz
+  format_overrides:
+    - goos: windows
+      format: zip
 checksum:
   name_template: 'checksums.txt'
 snapshot:
