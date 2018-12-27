@@ -4,6 +4,8 @@ Find usernames across multiple social networks.
 
 This is a multi-threaded Golang-Implementation of [sdushantha/sherlock](https://github.com/sdushantha/sherlock).
 
+[![asciicast](https://asciinema.org/a/YOG0MX8VaaavjU4t8qSlwhVmk.svg)](https://asciinema.org/a/YOG0MX8VaaavjU4t8qSlwhVmk)
+
 ## Installation
 
 +  Install Go (1.9+) and set your [GOPATH](https://golang.org/doc/code.html#GOPATH)
