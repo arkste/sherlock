@@ -1,4 +1,4 @@
-# Sherlock
+# sherlock
 
 Find usernames across multiple social networks.
 
