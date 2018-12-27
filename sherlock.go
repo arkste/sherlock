@@ -69,6 +69,11 @@ func isAvailable(s *socialNetwork, res *http.Response) bool {
 func makeRequest(wg *sync.WaitGroup, username, name string, s *socialNetwork) {
 	defer wg.Done()
 
+	if s.NoPeriod == "True" && strings.Contains(username, ".") {
+		errorLine(name, "User Name Not Allowed!")
+		return
+	}
+
 	s.URL = strings.Replace(string(s.URL), "{}", username, 1)
 
 	req, err := http.NewRequest("GET", s.URL, nil)
@@ -106,12 +111,6 @@ func sherlock(username string) {
 	var wg sync.WaitGroup
 	wg.Add(len(socialNetworks))
 	for name, socialNetwork := range socialNetworks {
-		if socialNetwork.NoPeriod == "True" && strings.Contains(username, ".") {
-			errorLine(name, "User Name Not Allowed!")
-			wg.Done()
-			continue
-		}
-
 		go makeRequest(&wg, username, name, socialNetwork)
 	}
 	wg.Wait()
