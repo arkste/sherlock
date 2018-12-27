@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"runtime"
 	"strings"
 	"sync"
 	"time"
@@ -37,11 +38,19 @@ var client = &http.Client{
 }
 
 func successLine(name, message string) {
-	fmt.Printf("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m %s:\033[0m %s\n", name, message)
+	if runtime.GOOS == "windows" {
+		fmt.Printf("[+] %s: %s\r\n", name, message)
+	} else {
+		fmt.Printf("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m %s:\033[0m %s\n", name, message)
+	}
 }
 
 func errorLine(name, message string) {
-	fmt.Printf("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m %s:\033[93;1m %s\033[0m\n", name, message)
+	if runtime.GOOS == "windows" {
+		fmt.Printf("[-] %s: %s\r\n", name, message)
+	} else {
+		fmt.Printf("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m %s:\033[93;1m %s\033[0m\n", name, message)
+	}
 }
 
 func isAvailable(s *socialNetwork, res *http.Response) bool {
@@ -118,15 +127,27 @@ func sherlock(username string) {
 
 func main() {
 	// Print Header
-	fmt.Println("\033[37;1m                                              .\"\"\"-.")
-	fmt.Println("\033[37;1m                                             /      \\")
-	fmt.Println("\033[37;1m ____  _               _            _        |  _..--'-.")
-	fmt.Println("\033[37;1m/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\\;\"`")
-	fmt.Println("\033[37;1m\\___ \\| '_ \\ / _ \\ '__| |/ _ \\ / __| |/ /   / /(     ^\\")
-	fmt.Println("\033[37;1m ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.")
-	fmt.Println("\033[37;1m|____/|_| |_|\\___|_|  |_|\\___/ \\___|_|\\_\\    /`--.'--'   \\ .-.")
-	fmt.Println("\033[37;1m                                           .'`-._ `.\\    | J /")
-	fmt.Println("\033[37;1m                                          /      `--.|   \\__/\033[0m")
+	if runtime.GOOS == "windows" {
+		fmt.Println("                                              .\"\"\"-.")
+		fmt.Println("                                             /      \\")
+		fmt.Println(" ____  _               _            _        |  _..--'-.")
+		fmt.Println("/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\\;\"`")
+		fmt.Println("\\___ \\| '_ \\ / _ \\ '__| |/ _ \\ / __| |/ /   / /(     ^\\")
+		fmt.Println(" ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.")
+		fmt.Println("|____/|_| |_|\\___|_|  |_|\\___/ \\___|_|\\_\\    /`--.'--'   \\ .-.")
+		fmt.Println("                                           .'`-._ `.\\    | J /")
+		fmt.Println("                                          /      `--.|   \\__/")
+	} else {
+		fmt.Println("\033[37;1m                                              .\"\"\"-.")
+		fmt.Println("\033[37;1m                                             /      \\")
+		fmt.Println("\033[37;1m ____  _               _            _        |  _..--'-.")
+		fmt.Println("\033[37;1m/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\\;\"`")
+		fmt.Println("\033[37;1m\\___ \\| '_ \\ / _ \\ '__| |/ _ \\ / __| |/ /   / /(     ^\\")
+		fmt.Println("\033[37;1m ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.")
+		fmt.Println("\033[37;1m|____/|_| |_|\\___|_|  |_|\\___/ \\___|_|\\_\\    /`--.'--'   \\ .-.")
+		fmt.Println("\033[37;1m                                           .'`-._ `.\\    | J /")
+		fmt.Println("\033[37;1m                                          /      `--.|   \\__/\033[0m")
+	}
 	fmt.Println("")
 
 	// Parse FLags
@@ -136,11 +157,16 @@ func main() {
 	if *username == "" {
 		// Read Username, if flags is empty
 		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("\033[37;1mUsername: \033[0m ")
-		*username, _ = reader.ReadString('\n')
+		if runtime.GOOS == "windows" {
+			fmt.Print("Username: ")
+			*username, _ = reader.ReadString('\r')
+		} else {
+			fmt.Print("\033[37;1mUsername:\033[0m ")
+			*username, _ = reader.ReadString('\n')
+		}
 	}
 
-	*username = strings.ToLower(strings.Replace(strings.Trim(*username, "\n"), " ", "", -1))
+	*username = strings.ToLower(strings.Replace(strings.Trim(*username, " \r\n"), " ", "", -1))
 
 	sherlock(*username)
 }
