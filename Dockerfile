@@ -7,6 +7,10 @@ WORKDIR $GOPATH/src/arkste/sherlock/
 RUN go get -d -v
 RUN go build -o /go/bin/sherlock
 
+FROM alpine:latest as certs
+RUN apk --update add ca-certificates
+
 FROM scratch
+COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=builder /go/bin/sherlock /go/bin/sherlock
 ENTRYPOINT ["/go/bin/sherlock"]
