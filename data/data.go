@@ -21,7 +21,7 @@ func Get() string {
 		"errorType": "status_code"
 	},
 	"YouTube (Custom-URL)": {
-		"url": "https://www.youtube.com/+{}",
+		"url": "https://www.youtube.com/c/{}",
 		"errorType": "status_code"
 	},
 	"Blogger": {
