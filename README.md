@@ -1,5 +1,12 @@
 # sherlock
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/arkste/sherlock)](https://goreportcard.com/report/github.com/arkste/sherlock)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/arkste/sherlock/master/LICENSE)
+[![Golang](https://img.shields.io/badge/Go-1.11-blue.svg)](https://golang.org)
+![Linux](https://img.shields.io/badge/Supports-Linux-green.svg)
+![macOS](https://img.shields.io/badge/Supports-macOS-green.svg)
+![windows](https://img.shields.io/badge/Supports-windows-green.svg)
+
 Find usernames across multiple social networks.
 
 This is a multi-threaded Golang-Implementation of [sdushantha/sherlock](https://github.com/sdushantha/sherlock).
