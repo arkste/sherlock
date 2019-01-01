@@ -159,11 +159,10 @@ func main() {
 		reader := bufio.NewReader(os.Stdin)
 		if runtime.GOOS == "windows" {
 			fmt.Print("Username: ")
-			*username, _ = reader.ReadString('\r')
 		} else {
 			fmt.Print("\033[37;1mUsername:\033[0m ")
-			*username, _ = reader.ReadString('\n')
 		}
+		*username, _ = reader.ReadString('\n')
 	}
 
 	*username = strings.ToLower(strings.Replace(strings.Trim(*username, " \r\n"), " ", "", -1))
